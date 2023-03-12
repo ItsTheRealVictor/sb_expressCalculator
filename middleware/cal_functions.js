@@ -1,4 +1,6 @@
-
+function removeCommas(inStr) {
+  return inStr.replaceAll(',', '')
+}
 
 
 function convertQueryToArray(inputString) {
@@ -20,18 +22,13 @@ function convertQueryToArray(inputString) {
 
 
 
-function removeCommas(inStr) {
-  return inStr.replaceAll(',', '')
+module.exports = {
+  removeCommas,
+  convertQueryToArray,
+
 }
 
 
 
-const outArr = convertQueryToArray(exArr)
 
 
-
-// function removeCommas(inArr) {
-//  return inArr.replaceAll(',', '') 
-// }
-
-// console.log(removeCommas(outArr))
