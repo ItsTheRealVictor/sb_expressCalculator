@@ -21,7 +21,21 @@ app.get('/mean/:nums', (req, res) => {
 
 
 app.get('/median/:nums', (req, res) => {
+    const inputQuery = removeCommas(req.params.nums)
+    const workingArr = convertQueryToArray(inputQuery)
+
+    workingArr.sort()
+    
+    if (workingArr.length % 2 !== 0){
+        let ind = Math.ceil(workingArr.length / 2)
+        return res.send(`The median is ${workingArr[ind - 1]}`)
+    } else {
+        let ind = Math.ceil(workingArr.length / 2)
+        return res.send(`The median is ${(workingArr[ind - 1] + workingArr[ind]) / 2} `)
+    }
+
 })
+
 app.get('/mode/:nums', (req, res) => {
     const inputQuery = removeCommas(req.params.nums)
     const workingArr = convertQueryToArray(inputQuery)
